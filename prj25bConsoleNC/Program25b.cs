@@ -1,11 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("Hello,1003 World!");
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using ca.i5i.c.person;
 using ca.i5i.c.animal.pet;
@@ -13,7 +8,7 @@ using ca.i5i.c.animal;
 using ca.i5i.c.animal2;
 using System.Text.RegularExpressions;
 using System.Collections;
-using System.Xml.Linq;
+using System.Data.SQLite;
 
 namespace ca.i5i.c
 {
@@ -74,12 +69,81 @@ namespace ca.i5i.c
             //collection2526Stack();
             //collection2526Queue();
             //collection2526BitArray();
+           //sqlite2527();
 
             Console.ReadKey();  //this way better than Sleep/ReadLine.
             //Thread.Sleep(9000);  //sleep for 9 seconds.
             //Console.ReadLine();
         }
+        static void sqlite2527()
+        {
+            SQLiteConnection sqlite_conn;
+            sqlite_conn = CreateConnection();
+            CreateTable(sqlite_conn);
+            InsertData(sqlite_conn);
+            ReadData(sqlite_conn); ;
+        }
+        
+        static SQLiteConnection CreateConnection()
+        {
+            SQLiteConnection sqlite_conn;
+            // Create a new database connection:
+            //sqlite_conn = new SQLiteConnection("Data Source= sqlite3db.db; Version = 3; New = True; Compress = True; ");
+            sqlite_conn = new SQLiteConnection("Data Source= sqlite3dbB.db");         
+            try
+            {
+                sqlite_conn.Open();     // Open the connection:
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+            return sqlite_conn;
+        }
 
+        static void CreateTable(SQLiteConnection conn)
+        {
+            SQLiteCommand sqlite_cmd;
+            string Createsql = "CREATE TABLE SampleTable (Col1 VARCHAR(20), Col2 INT)";
+            string Createsql1 = "CREATE TABLE SampleTable1 (Col1 VARCHAR(20), Col2 INT)";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = Createsql;
+            sqlite_cmd.ExecuteNonQuery();
+            sqlite_cmd.CommandText = Createsql1;
+            sqlite_cmd.ExecuteNonQuery();
+        }
+
+        static void InsertData(SQLiteConnection conn)
+        {
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = "INSERT INTO SampleTable (Col1, Col2) VALUES('Test Text ', 1); ";
+            sqlite_cmd.ExecuteNonQuery();
+            sqlite_cmd.CommandText = "INSERT INTO SampleTable (Col1, Col2) VALUES('Test1 Text1 ', 2); ";
+            sqlite_cmd.ExecuteNonQuery();
+            sqlite_cmd.CommandText = "INSERT INTO SampleTable (Col1, Col2) VALUES('Test2 Text2 ', 3); ";
+            sqlite_cmd.ExecuteNonQuery();
+        }
+
+        static void ReadData(SQLiteConnection conn)
+        {
+            SQLiteDataReader sqlite_datareader;
+            SQLiteCommand sqlite_cmd;
+
+            Console.WriteLine("in ReadData");
+
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = "SELECT * FROM SampleTable";
+
+            sqlite_datareader = sqlite_cmd.ExecuteReader();
+            while (sqlite_datareader.Read())  //  The Read() method of the reader moves the reader to the next row.
+            {
+                string myreader = sqlite_datareader.GetString(0);
+                Console.WriteLine(myreader);
+            }
+            conn.Close();
+        }
+        
         static void collection2526BitArray() {
             //creating two bit arrays of size 8
             BitArray ba1 = new BitArray(8);
@@ -126,7 +190,6 @@ namespace ca.i5i.c
             Console.ReadKey();
         }
     
-
         static void collection2526Queue()
         {
             Queue q = new Queue();

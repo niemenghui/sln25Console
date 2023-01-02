@@ -9,6 +9,8 @@ using ca.i5i.c.animal2;
 using System.Text.RegularExpressions;
 using System.Collections;
 using System.Data.SQLite;
+using System.Data.Entity.Core.Common.CommandTrees;
+using System.Reflection.Metadata;
 
 namespace ca.i5i.c
 {
@@ -69,12 +71,71 @@ namespace ca.i5i.c
             //collection2526Stack();
             //collection2526Queue();
             //collection2526BitArray();
-           //sqlite2527();
+            //sqlite2527();
+            //lambda2528Expression();
+            //lambda2528StatementA();
+            //lambda2528StatementB();
+            //lambda2528delegateTypeFuncA();
+            //lambda2528delegateTypeFuncB();
+            //lambda2528ExpressionAsParameter();
 
             Console.ReadKey();  //this way better than Sleep/ReadLine.
             //Thread.Sleep(9000);  //sleep for 9 seconds.
             //Console.ReadLine();
         }
+
+        static void lambda2528ExpressionAsParameter() {
+            // array containing integer values 
+            int[] numbers = { 2, 13, 1, 4, 13, 5 };
+
+            // lambda expression as method parameter
+            // returns the total count of 13 in the numbers array
+            int totalCount = numbers.Count(x => x == 13);          
+
+            Console.WriteLine("Total number of 13: " + totalCount);
+        }
+        static void lambda2528delegateTypeFuncB()
+        {
+            // using lambda expression with delegate type Func: take an int input, multiply it with 3 and return the result. 
+            Func<int, int> multiply = num => num * 3;            
+            Console.WriteLine(multiply(5));  // calls multiply() by passing 5 as an input.
+        }
+
+        static void lambda2528delegateTypeFuncA()
+        {
+            Func<int, int> square = x => x * x;  //we can assign lambda expressions to the delegate types like Func. 
+            Console.WriteLine(square(5));  // square is a new instance of the delegate.
+        }
+
+        static void lambda2528StatementB()
+        {
+            // statement lambda that takes two int inputs and returns the sum. 
+            var resultingSum = (int a, int b) =>
+            {
+                int calculatedSum = a + b;
+                return calculatedSum;
+            };
+            Console.WriteLine("Total sum: " + resultingSum(5, 6));
+        }
+
+
+        static void lambda2528StatementA()
+        {
+            var sum2 = (int a, int b) =>
+            {
+                var sum = a + b;
+                return sum;
+            };
+            Console.WriteLine("sum of 2 number2: " + sum2(5, 4));
+        } 
+
+
+        static void lambda2528Expression()
+        {
+            var square = (int num) => num * num;   // expression lambda that returns the square of a number.           
+            Console.WriteLine("Square of number: " + square(5));   // passing input to the expression lambda. 
+        }
+
         static void sqlite2527()
         {
             SQLiteConnection sqlite_conn;

@@ -36,7 +36,7 @@ namespace ca.i5i.c
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello21World!");
+            //Console.WriteLine("Hello21World!");
             //MyMethod2511();
             //Input2512();
             //DefaultParameter2513("Sweden");
@@ -73,7 +73,7 @@ namespace ca.i5i.c
             //collection2526BitArray();
             //sqlite2527();
             //lambda2528Expression();
-            //lambda2528StatementA();
+            lambda2528StatementA();
             //lambda2528StatementB();
             //lambda2528delegateTypeFuncA();
             //lambda2528delegateTypeFuncB();

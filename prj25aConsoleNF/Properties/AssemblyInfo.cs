@@ -5,7 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("prj25aConsoleNF")]
+[assembly: AssemblyTitle("prj25aConsoleNF")]  //  seems C# - Attributes: attribute is a declarative tag that is used to convey information to runtime about the behaviors of various elements like classes, methods, structures, enumerators, assemblies etc.
+											  //  [Obsolete("Don't use OldMethod, use NewMethod instead", true)], public static void Main() {      OldMethod();
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]

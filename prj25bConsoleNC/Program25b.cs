@@ -36,55 +36,82 @@ namespace ca.i5i.c
 
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello21World!");
-            //MyMethod2511();
-            //Input2512();
-            //DefaultParameter2513("Sweden");
-            //DefaultParameter2513();
-            //DefaultParameter2513("USA");
-            //Pet2514();
-            //Person2515();
-            //PersonShortHand2516();
-            //Car2517();
-            //Animal2518();
-            //AbstractAnimal2519();
-            //IAnimal2520();
-            //EnumValu/521();
-            //SqlConnection2522();
-            //intSwap2523();
-            //stringSwap2523();
-            //regex2524dot();
-            //regex2524d();
-            //regex2524Replace();
-            //regex2524repeat();           
-            //regex2524phone();
-            //regex2524email();
-            //regex2524other();
-            //fileStream2525a();
-            //streamReader2525c();
-            //streamWriter2525e();
-            //binaryWriter2525g();            
-            //directoryInfo2525i();     
-            //collection2526ArrayList();
-            //collection2526Hashtable();
-            //collection2526SortedList();
-            //collection2526Stack();
-            //collection2526Queue();
-            //collection2526BitArray();
-            //sqlite2527();
-            //lambda2528Expression();
-            lambda2528StatementA();
-            //lambda2528StatementB();
-            //lambda2528delegateTypeFuncA();
-            //lambda2528delegateTypeFuncB();
-            //lambda2528ExpressionAsParameter();
+			//Console.WriteLine("Hello21World!");
+			//MyMethod2511();
+			//Input2512();
+			//DefaultParameter2513("Sweden");
+			//DefaultParameter2513();
+			//DefaultParameter2513("USA");
+			//Pet2514();
+			//Person2515();
+			//PersonShortHand2516();
+			//Car2517();
+			//Animal2518();
+			//AbstractAnimal2519();
+			//IAnimal2520();
+			//EnumValu/521();
+			//SqlConnection2522();
+			//intSwap2523();
+			//stringSwap2523();
+			//regex2524dot();
+			//regex2524d();
+			//regex2524Replace();
+			//regex2524repeat();           
+			//regex2524phone();
+			//regex2524email();
+			//regex2524other();
+			//fileStream2525a();
+			//streamReader2525c();
+			//streamWriter2525e();
+			//binaryWriter2525g();            
+			//directoryInfo2525i();     
+			//collection2526ArrayList();
+			//collection2526Hashtable();
+			//collection2526SortedList();
+			//collection2526Stack();
+			//collection2526Queue();
+			//collection2526BitArray();
+			//sqlite2527();
+			//lambda2528Expression();
+			//lambda2528StatementA();
+			//lambda2528StatementB();
+			//lambda2528delegateTypeFuncA();
+			//lambda2528delegateTypeFuncB();
+			//lambda2528ExpressionAsParameter();
 
-            Console.ReadKey();  //this way better than Sleep/ReadLine.
+			//coderpad2529null();
+			//coderpad2529cast();
+			coderpad2529c();
+
+			Console.ReadKey();  //this way better than Sleep/ReadLine.
             //Thread.Sleep(9000);  //sleep for 9 seconds.
             //Console.ReadLine();
         }
 
-        static void lambda2528ExpressionAsParameter() {
+		static void coderpad2529c()
+		{
+			string length = "zzzzz";
+			Console.WriteLine("length: " + length);
+		}
+
+		static void coderpad2529cast()
+		{
+			object obj = "Hello";
+			//int length = (int)obj;
+			string length = Convert.ToString(obj);
+			Console.WriteLine("length: " + length);
+		}
+
+		static void coderpad2529null()
+		{
+			string name = null;
+			//name = "zzwww";
+			int length = name?.Length ?? 0;		
+			Console.WriteLine("length: " + length);
+		}
+
+
+		static void lambda2528ExpressionAsParameter() {
             // array containing integer values 
             int[] numbers = { 2, 13, 1, 4, 13, 5 };
 
